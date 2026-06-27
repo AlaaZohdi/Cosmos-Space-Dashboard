@@ -521,8 +521,14 @@ function renderPlanetCards(planets) {
   for (let j = 0; j < cards.length; j++) {
     cards[j].addEventListener("click", function () {
       const planetId = this.dataset.planetId;
-      const selectedPlanet = planetsData.find((planet) => planet.id === planetId);
+let selectedPlanet = null;
 
+for (let i = 0; i < planetsData.length; i++) {
+  if (planetsData[i].id === planetId) {
+    selectedPlanet = planetsData[i];
+    break;
+  }
+}
       if (selectedPlanet) {
         showPlanetDetails(selectedPlanet);
       }
